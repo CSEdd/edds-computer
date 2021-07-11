@@ -48,4 +48,11 @@
     [(and (= a 0) (= b 1) 0)]
     [(and (= a 1) (= b 0) 0)]
     [(and (= a 1) (= b 1) 1)]))
-    
+
+; XOR -> AND -> (SUM, CARRY)
+(define (HALF-ADDER XOR AND)
+  (cond
+    [(and (= XOR 0) (= AND 0) '(0 0))]
+    [(and (= XOR 0) (= AND 1) '(0 1))]
+    [(and (= XOR 1) (= AND 0) '(0 1))]
+    [(and (= XOR 1) (= AND 1) '(1 0))]))
