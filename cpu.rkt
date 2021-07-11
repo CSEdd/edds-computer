@@ -49,10 +49,22 @@
     [(and (= a 1) (= b 0) 0)]
     [(and (= a 1) (= b 1) 1)]))
 
-; XOR -> AND -> (SUM, CARRY)
+; XOR -> AND -> (CARRYout, SUM)
 (define (HALF-ADDER XOR AND)
   (cond
     [(and (= XOR 0) (= AND 0) '(0 0))]
     [(and (= XOR 0) (= AND 1) '(0 1))]
     [(and (= XOR 1) (= AND 0) '(0 1))]
     [(and (= XOR 1) (= AND 1) '(1 0))]))
+
+; XOR -> AND -> CARRYin -> (CARRYout, SUM)
+(define (FULL-ADDER XOR AND CARRYin)
+  (cond
+    [(and (= XOR 0) (= AND 0) (= CARRYin 0) '(0 0))]
+    [(and (= XOR 0) (= AND 0) (= CARRYin 1) '(0 1))]
+    [(and (= XOR 0) (= AND 1) (= CARRYin 0) '(0 1))]
+    [(and (= XOR 1) (= AND 0) (= CARRYin 0) '(1 0))]
+    [(and (= XOR 1) (= AND 0) (= CARRYin 0) '(0 1))]
+    [(and (= XOR 1) (= AND 0) (= CARRYin 1) '(1 0))]
+    [(and (= XOR 1) (= AND 1) (= CARRYin 0) '(1 0))]
+    [(and (= XOR 1) (= AND 1) (= CARRYin 1) '(1 1))]))
